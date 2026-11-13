@@ -4,8 +4,6 @@ set -euo pipefail
 mkdir -p /workspace
 cd /workspace
 
-: "${JUPYTER_TOKEN:?Set JUPYTER_TOKEN in the RunPod template}"
-
 echo "=== Installed inference stack ==="
 
 python3 - <<'PY'
@@ -35,4 +33,6 @@ exec python3 -m jupyterlab \
     --ServerApp.port=8888 \
     --ServerApp.open_browser=False \
     --ServerApp.allow_remote_access=True \
+    --IdentityProvider.token='' \
+    --PasswordIdentityProvider.hashed_password='' \
     --allow-root
