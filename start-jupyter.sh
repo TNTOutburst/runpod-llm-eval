@@ -33,6 +33,8 @@ exec python3 -m jupyterlab \
     --ServerApp.port=8888 \
     --ServerApp.open_browser=False \
     --ServerApp.allow_remote_access=True \
+    --ServerApp.allow_origin='*' \
+    --ServerApp.trust_xheaders=True \
     --IdentityProvider.token='' \
     --PasswordIdentityProvider.hashed_password='' \
     --allow-root
