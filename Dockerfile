@@ -81,7 +81,8 @@ print(open("/opt/inference-constraints.txt").read())
 PY
 
 # Require modern application packages.
-RUN uv pip install \
+RUN CXXFLAGS="-include cstdint" \
+    uv pip install \
         --python "$(command -v python3)" \
         --no-cache \
         --constraint /opt/inference-constraints.txt \
