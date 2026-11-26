@@ -81,11 +81,9 @@ print(open("/opt/inference-constraints.txt").read())
 PY
 
 # Require modern application packages.
-# Wheels only: fail clearly rather than compiling obsolete releases.
 RUN uv pip install \
         --python "$(command -v python3)" \
         --no-cache \
-        --only-binary :all: \
         --constraint /opt/inference-constraints.txt \
         "jupyterlab>=4" \
         "ipykernel>=6" \
